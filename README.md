@@ -1,43 +1,72 @@
-# Catálogo de Livros — Angular
+# Trabalho Prático: Catálogo de Livros em Angular
 
-Projeto do trabalho prático de **DGT2809 — Aprofundamento em Desenvolvimento Front-End**. Implementa um catálogo de livros com serviços injetáveis, componentes Angular, formulários com `FormsModule` e navegação interna por rotas.
+Disciplina **DGT2809 - Aprofundamento em Desenvolvimento Front-End**.
 
-## Requisitos
+Este projeto é uma aplicação **Angular** de catálogo de livros, com listagem, inclusão e exclusão de itens, navegação por rotas e formulário com validação, estilizada com **Bootstrap**.
 
-- Node.js 20.11+ (recomendado: versão LTS atual)
-- npm 10+
+## Modelo de dados
 
-## Executar localmente
+| Classe | Descrição |
+|---|---|
+| Livro | Representa um livro do catálogo (título, resumo, autores, editora) |
+| Editora | Representa a editora, identificada por código e nome |
 
-1. Extraia a pasta do projeto e abra `catalogo-livros-angular` no VS Code.
-2. Abra o terminal integrado na raiz do projeto.
-3. Instale as dependências:
+## Estrutura do projeto
 
-   ```bash
-   npm install
-   ```
-
-4. Inicie a aplicação:
-
-   ```bash
-   npm.cmd start
-   ```
-
-5. Abra <http://localhost:4200/>.
-
-Para validar a compilação de produção, use `npm.cmd run build` no PowerShell. No terminal Git Bash, os comandos equivalentes são `npm install`, `npm start` e `npm run build`.
+- **Classes:** `Livro` e `Editora`.
+- **Serviços:** `ControleLivros` (gerencia a lista de livros) e `ControleEditora` (fornece as editoras).
+- **Componentes:** `LivroLista` (exibe e exclui livros) e `LivroDados` (formulário de inclusão).
+- **Rotas:** `/lista` e `/dados`.
 
 ## Funcionalidades
 
-- Lista inicial de livros, editoras e autores.
-- Exclusão de livros da lista.
-- Formulário para incluir livro com título obrigatório, editora obrigatória, resumo e autores (um por linha).
-- Rotas `/lista` e `/dados`; a rota inicial redireciona para a lista.
-- Os dados são mantidos em memória durante a execução e voltam aos exemplos iniciais ao recarregar a aplicação.
+### Lista de livros (`/lista`)
 
-## Estrutura principal
+- Exibe os livros cadastrados em tabela.
+- Mostra o nome da editora de cada livro.
+- Permite excluir um livro.
 
-- `src/app/models`: classes `Livro` e `Editora`.
-- `src/app/services`: serviços de controle de livros e editoras.
-- `src/app/components`: componentes de listagem e cadastro.
-- `src/app/app-routing.module.ts`: rotas da aplicação.
+### Cadastro de livros (`/dados`)
+
+- Formulário com título, resumo, editora e autores (um por linha).
+- Uso de `FormsModule` e `ngModel`.
+- Validação nativa do navegador (`ngNativeValidate`).
+- Após salvar, redireciona para a lista.
+
+## Como executar
+
+1. Instale o Node.js e abra o terminal na pasta do projeto.
+2. Instale as dependências:
+bash npm install
+
+3. Inicie a aplicação:
+bash npm start
+
+4. Acesse no navegador: http://localhost:4200/
+
+No PowerShell do Windows, se o `npm` for bloqueado por política de execução, use `npm.cmd install` e `npm.cmd start`.
+
+Para encerrar o servidor, pressione `Ctrl + C`.
+
+## Tecnologias
+
+- Angular
+- TypeScript
+- Bootstrap
+- HTML5 e CSS3
+
+## Observações
+
+- A pasta `node_modules` não faz parte do repositório; ela é gerada pelo `npm install`.
+- Abrir `src/index.html` direto como arquivo resulta em página em branco; é necessário rodar o servidor do Angular.
+- Os dados ficam em memória: ao recarregar a página, a lista volta ao estado inicial.
+
+## Ambiente
+
+- VS Code e Windows
+- Node.js e npm
+- Navegador moderno (Chrome, Edge ou Firefox)
+
+## Autor
+
+Igor Lima
